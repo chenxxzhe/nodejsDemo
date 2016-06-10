@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  if (!user)
+    .jumbotron  
+      h1 Welcome to Microblog
+      p Microblog is built by express
+      p
+        a.btn.btn-primary.btn-large(href='/login') Login
+        a.btn.btn-large(href='/reg') Register Now!
+  else 
+    include ./say.jade
+
+  include ./post.jade
+    
+

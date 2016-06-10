@@ -1,0 +1,13 @@
+if (posts)
+    - for (var i = 0; i < posts.length; i = i + 3)
+        .row
+            - var j = 0
+            while j < 3 && j + i < posts.length
+                .col-sm-4
+                    - var name = posts[j+i].user
+                    h3
+                        a(href='/user/#{posts[j+i].user}')= posts[j+i].user 
+                        | &nbsp;says:
+                    p: small: time.text-muted(pubdate='#{posts[j+i].time}')= posts[j+i].time.toLocaleString('en-US',{hour12: false})
+                    p= posts[j+i].post
+                - j = j + 1
